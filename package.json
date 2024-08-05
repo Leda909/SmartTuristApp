@@ -1,0 +1,19 @@
+{
+  "name": "ssmart-turist-application",
+  "version": "1.0.0",
+  "description": "Smart Turist Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test.js"
+  },
+  "keywords": [],
+  "author": "Leda909",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
