@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- import favicon libary -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- import css -->
     <link rel="stylesheet" href="css/style.css">
     <title>SmartTuristApp</title>
     <!-- import javascript files -->
@@ -32,7 +35,7 @@
         <input type="hidden" id="longitude" name="longitude">
 
         <!-- Button to get the geolocation of your position -->
-        <button onclick="getLocation()"> Get Location </button>
+        <button onclick="getLocation()"> <i class="fa-solid fa-location-crosshairs"></i> </button>
         <!-- Submitting button -->
         <button type="submit" form="YourLocationForm" value="Submit">Submit</button><br>
     </form>
