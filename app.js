@@ -9,7 +9,8 @@ const bodyParser = require('body-parser');
 // Load environment variables from a .env file into process.env
 require("dotenv").config(); 
 // Define the port to run the server on, defaulting to 4000 if not specified
-const PORT = process.env.PORT || 3000; 
+const PORT = process.env.PORT || 3000;
+
 
 // Middleware
 // Use body-parser to parse JSON bodies of incoming requests
@@ -29,4 +30,11 @@ app.listen(PORT, () => {
 app.get('/', function(req, res) {
     // Send the index.html file located in the 'public' directory as the response
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+// Endpoint to get the Google API key
+app.get('/api-keys/google', (req, res) => {
+    res.json({
+        googleApiKey: process.env.Google_MAP_API_KEY,
+    });
 });

@@ -13,7 +13,7 @@
 </head>
 <body>
     <h1>SmartTuristApp</h1>
-    <form onsubmit="sendLocation(event)" method="" id="YourLocationForm">
+    <form onsubmit="sendLocationForm(event)" method="" id="YourLocationForm">
         <label for="type_of_places">Look for </label>
         <!-- Select the type of places you want to search for  -->
         <select id="" name="">
@@ -32,7 +32,7 @@
         <input type="hidden" id="longitude" name="longitude">
 
         <!-- Button to get the geolocation of your position -->
-        <button onclick=""> Get Location </button>
+        <button onclick="getLocation()"> Get Location </button>
         <!-- Submitting button -->
         <button type="submit" form="YourLocationForm" value="Submit">Submit</button><br>
     </form>
