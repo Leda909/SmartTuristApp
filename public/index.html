@@ -5,8 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>SmartTuristApp</title>
+
 </head>
 <body>
     <h1>SmartTuristApp</h1>
+    <form onsubmit="sendLocation(event)" method="" id="YourLocationForm">
+        <label for="type_of_places">Look for </label>
+        <!-- Select the type of places you want to search for  -->
+        <select id="" name="">
+            <option value="" disabled selected>Please, choose an option</option>
+            <option value="">TURISTIC ATTRACTIONS</option>
+        </select>
+        <!-- Select the searching radious in meter -->
+        <label for=""> , within: </label>
+        <input type="number" id="radius" name="radius" value="0" step="0.1" min="0">
+        <span> m</span>
+        <!-- The starting location, the location around you are looking for places -->
+        <label for="startLocation">nearby </label>
+        <input type="text" id="YourLocation" name="YourLocation" placeholder="Please, enter a location">
+        <!-- Get the longitude and langitude as well, to be able to send hiddenly through submittion of the form. -->
+        <input type="hidden" id="latitude" name="latitude">
+        <input type="hidden" id="longitude" name="longitude">
+
+        <!-- Button to get the geolocation of your position -->
+        <button onclick=""> Get Location </button>
+        <!-- Submitting button -->
+        <button type="submit" form="YourLocationForm" value="Submit">Submit</button><br>
+    </form>
 </body>
 </html>
