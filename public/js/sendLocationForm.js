@@ -1,4 +1,4 @@
-const sendLocationForm = (event) => {
+const sendLocationForm = async (event) => {
     event.preventDefault();
     console.log('Form submitted');
     try {
@@ -8,3 +8,4 @@ const sendLocationForm = (event) => {
         console.error('Error:', error);
     }
 }
+

@@ -7,7 +7,7 @@ async function fetchGoogleApiKey() {
 
 function getLocation() {
     if (navigator.geolocation) {
-        console.log("Testing navigator.geolocation");
+        // console.log("Testing navigator.geolocation");
         navigator.geolocation.getCurrentPosition(showPosition, showError);
     } else {
         document.getElementById('location').innerHTML = "Geolocation is not supported by this browser.";
@@ -33,7 +33,7 @@ function showError(error) {
 }
 
 async function showPosition(position) {
-    console.log("Testing Showpositions function");
+    // console.log("Testing Showpositions function");
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     geoLocation = { lat: latitude, lng: longitude };
@@ -43,7 +43,7 @@ async function showPosition(position) {
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleApiKey}`)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            // console.log(data);
             if (data.status === "OK") {
                 const startLocation = data.results[0].formatted_address;
                 document.getElementById('YourLocation').value = startLocation;

@@ -64,3 +64,5 @@ npm install body-parser@latest cors@latest dotenv@latest express@latest
 ```
 
 ## Get API keys
+
+Code to load Google Map Javascript => https://developers.google.com/maps/documentation/javascript/load-maps-js-api#javascript_1
