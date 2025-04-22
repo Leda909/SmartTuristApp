@@ -65,5 +65,10 @@ npm install body-parser@latest cors@latest dotenv@latest express@latest
 
 ## Get API keys
 
+Create a Google Api key by following the documentation:
+
+https://developers.google.com/maps/documentation/embed/cloud-setup?_gl=1*edf1ji*_up*MQ..*_ga*Mjg1MjcwMDgyLjE3NDAzMDcyMzE.*_ga_NRWSTWS78N*MTc0MDMwNzIzMC4xLjEuMTc0MDMwNzIzMi4wLjAuMA..
+
+
 Code to load Google Map Javascript => https://developers.google.com/maps/documentation/javascript/load-maps-js-api#javascript_1
 https://developers.google.com/maps/documentation/javascript/place-autocomplete

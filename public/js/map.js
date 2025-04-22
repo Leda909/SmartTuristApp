@@ -7,7 +7,6 @@ async function fetchGoogleApiKey() {
 // Initialize the map
 async function initMap() {
     const { Map } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
 
     const defaultPosition = { lat: 51.501364, lng: -0.1444649 };
     // Set up the map centered on the provided lat/lng
@@ -18,18 +17,20 @@ async function initMap() {
     });
 
     // Place a marker on the map
-    // new AdvancedMarkerElement({
+    // const markers = new AdvancedMarkerElement({
     //     map: map,
     //     position: defaultPosition,
     //     title: 'Your Location',
     // });
+
+    initAutocomplete(map);
 }
 
 async function createMap(googleApiKey) {
     return new Promise((resolve, reject) => {
       const script = document.createElement('script');
       // call initMap by google
-      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&callback=initMap`;
+      script.src = `https://maps.googleapis.com/maps/api/js?key=${googleApiKey}&libraries=places&callback=initMap`;
       script.async = true;
       script.defer = true;
       script.onload = resolve;
@@ -47,21 +48,23 @@ async function init() {
     } catch (error) {
       console.error('Error loading the map:', error);
     }
-  }
+}
   
-  // Call the init function to start the process
+// Call the init function to start the process
 init();
 
-function initAutocomplete() {
+async function initAutocomplete(map) {
     const input = document.getElementById('YourLocation');
-    const autocomplete = new google.maps.places.Autocomplete(input);
+    const autocomplete = new google.maps.places.SearchBox(input);
 
-    // From google autocomplete documentation
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-    searchBox.addListener("places_changed", () => {
-        const places = searchBox.getPlaces();
-    
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+    let markers= [];
+
+    autocomplete.addListener("places_changed", () => {
+        const places = autocomplete.getPlaces();
+        console.log(places);
+
         if (places.length == 0) {
         return;
         }
@@ -80,20 +83,11 @@ function initAutocomplete() {
             console.log("Returned place contains no geometry");
             return;
         }
-    
-        const icon = {
-            url: place.icon,
-            size: new google.maps.Size(71, 71),
-            origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(17, 34),
-            scaledSize: new google.maps.Size(25, 25),
-        };
-    
+       
         // Create a marker for each place.
         markers.push(
-            new google.maps.Marker({
+            new AdvancedMarkerElement({
             map,
-            icon,
             title: place.name,
             position: place.geometry.location,
             }),
