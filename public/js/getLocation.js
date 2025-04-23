@@ -38,6 +38,9 @@ async function showPosition(position) {
     const longitude = position.coords.longitude;
     geoLocation = { lat: latitude, lng: longitude };
 
+    document.getElementById('latitude').value = latitude;
+    document.getElementById('longitude').value = longitude;
+
     const googleApiKey = await fetchGoogleApiKey();
     // Use a geocoding service to convert the lat/lng to an address
     fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${googleApiKey}`)
