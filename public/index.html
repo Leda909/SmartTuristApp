@@ -19,17 +19,21 @@
     <form onsubmit="sendLocationForm(event)" method="" id="YourLocationForm">
         <label for="type_of_places">Look for </label>
         <!-- Select the type of places you want to search for  -->
-        <select id="typeOfPlace" name="typeOfPlace">
+        <select id="typeOfPlace" name="typeOfPlace" required>
             <option value="" disabled selected>Please, choose an option</option>
             <option value="tourist_attraction">TURISTIC ATTRACTIONS</option>
+            <option value="art_gallery">ART GALLERIES</option>
+            <option value="museum">MUSEUMS</option>
+            <option value="park">PARKS</option>
+            <!-- <option value="hiking_area">HIKING AREAS</option> -->
         </select>
         <!-- Select the searching radious in meter -->
         <label for="radious"> , within: </label>
-        <input type="number" id="radius" name="radius" value="0" step="0.1" min="0">
+        <input type="number" id="radius" name="radius" value="0" step="0.1" min="0" required>
         <span> m</span>
         <!-- The starting location, the location around you are looking for places -->
         <label for="startLocation">nearby </label>
-        <input type="text" id="YourLocation" name="YourLocation" placeholder="Please, enter a location">
+        <input type="text" id="YourLocation" name="YourLocation" placeholder="Please, enter a location" required>
         <!-- Get the longitude and langitude as well, to be able to send hiddenly through submittion of the form. -->
         <input type="hidden" id="latitude" name="latitude">
         <input type="hidden" id="longitude" name="longitude">
